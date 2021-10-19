@@ -14,7 +14,7 @@ class Category(models.Model):
         ordering = ['name']
 
     def __str__(self) -> str:
-        return self.name
+        return f'{self.name}'
 
     def get_absolute_url(self):
         return f'/{self.slug}/'
@@ -32,9 +32,10 @@ class Product(models.Model):
     slug = models.SlugField()
     price = models.PositiveIntegerField()
     points = models.PositiveIntegerField(blank=True, null=True)
+    calories = models.PositiveIntegerField(blank=True, null=True)
 
     def __str__(self) -> str:
-        return self.name
+        return f'{self.name}'
 
     def get_absolute_url(self):
         return f'/{self.category.slug}/{self.slug}'
@@ -44,6 +45,15 @@ class Ingredient(models.Model):
     product = models.ForeignKey(
         Product, on_delete=models.CASCADE, related_name='ingredients')
     name = models.CharField(max_length=155)
+    quantity = models.PositiveIntegerField(blank=True, null=True)
 
     def __str__(self) -> str:
-        return self.name
+        return f'{self.name}'
+
+
+class Extra(models.Model):
+    name = models.CharField(max_length=155)
+    price = models.PositiveIntegerField(blank=True, null=True)
+
+    def __str__(self) -> str:
+        return f'{self.name}'
