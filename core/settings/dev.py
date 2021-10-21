@@ -1,3 +1,4 @@
+import os
 from .base import *
 
 DEBUG = True
@@ -13,6 +14,3 @@ DATABASES = {
 
 
 CORS_ALLOW_ALL_ORIGINS = True
-
-MEDIA_ROOT = 'media'
-MEDIA_URL = '/media/'
