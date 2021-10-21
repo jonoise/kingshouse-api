@@ -2,7 +2,7 @@ import os
 from .base import *
 import django_on_heroku
 
-DEBUG = False
+DEBUG = True
 SECRET_KEY = os.environ.get('SECRET_KEY')
 CORS_ALLOWED_ORIGINS = ['https://www.kingshousecr.com']
 
